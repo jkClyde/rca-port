@@ -1346,13 +1346,130 @@ footer .footer-links-group a:hover::before {
   color: rgba(232, 239, 233, 0.75);
 }
 
+/* slider controls (counter + arrows): created by routine.js, mobile only */
+.routine .routine-controls {
+  display: none;
+}
+
+/* mobile: a normal swipeable slider (native scroll + snap). Nothing is pinned
+   and the page keeps scrolling vertically, so there is no horizontal scroll-jacking. */
 @media (max-width: 1000px) {
+  .routine {
+    height: auto;
+    display: block;
+    padding: 6rem 0 4rem 0; /* top clears the fixed nav */
+    overflow: visible;
+  }
+
+  .routine .routine-container,
+  .routine .routine-copy {
+    position: static;
+    height: auto;
+  }
+
   .routine .routine-copy .container {
-    padding: 6rem 1rem 1rem 1rem;
+    height: auto;
+    padding: 0 1rem;
   }
 
   .routine .routine-header {
     align-items: flex-end;
+  }
+
+  .routine .routine-progress-bar {
+    margin: 1.25rem 0 1.5rem 0;
+  }
+
+  /* the slider itself scrolls sideways, edge to edge */
+  .routine .routine-slider {
+    height: auto;
+    margin: 0 -1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1rem;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .routine .routine-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .routine .routine-slider-wrapper {
+    height: auto;
+    align-items: stretch;
+    padding: 0 1rem; /* first and last card sit 1rem from the screen edge */
+  }
+
+  .routine .routine-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.25rem;
+  }
+
+  .routine .routine-count {
+    color: var(--base-100);
+    font-size: 1rem;
+  }
+
+  .routine .routine-count .routine-count-current {
+    color: var(--base-500);
+  }
+
+  .routine .routine-arrows {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  /* 3rem squares: comfortable tap targets, same look as the nav icon buttons */
+  .routine .routine-arrow {
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--base-500);
+    border: 1px solid var(--base-500);
+    border-radius: 0.25rem;
+    color: #0b0f0e;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease,
+      color 0.2s ease, opacity 0.2s ease;
+  }
+
+  .routine .routine-arrow svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* lime while pressed (touch) or focused (keyboard) */
+  .routine .routine-arrow:active:not(:disabled) {
+    transform: scale(0.94);
+  }
+
+  .routine .routine-arrow:focus-visible {
+    outline: 2px solid var(--base-100);
+    outline-offset: 2px;
+  }
+
+  /* at the ends: hollow and faded, so the active arrow clearly stands out */
+  .routine .routine-arrow:disabled {
+    background: transparent;
+    border-color: rgba(var(--base-100-rgb), 0.3);
+    color: var(--base-100);
+    opacity: 0.35;
+    cursor: default;
   }
 
   /* sized by width on phones, narrower than the screen so the next card peeks in */
@@ -1360,6 +1477,7 @@ footer .footer-links-group a:hover::before {
     height: auto;
     aspect-ratio: 4 / 5;
     width: clamp(16rem, 78vw, 22rem);
+    scroll-snap-align: start;
   }
 
   .routine .routine-block-footer h3 {

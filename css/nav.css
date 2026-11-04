@@ -1,6 +1,6 @@
 /* nav - desktop: links on the left, social icons on the right */
 nav {
-  position: absolute; /* not sticky for now: change to fixed to make it stick */
+  position: fixed; /* sticky: stays at the top while scrolling */
   top: 1rem;
   left: 50%;
   transform: translateX(-50%);
@@ -13,6 +13,15 @@ nav {
   align-items: center;
   /* above all page content (hero text, tiles); below the preloader */
   z-index: 100;
+
+  /* the nav keeps its own dark colors, so the page's light theme switch
+     (:root.is-light, added by zoom.js) can't change it. Variables set on the
+     element itself always beat the ones inherited from :root. */
+  --base-100: rgb(232, 239, 233);
+  --base-200: rgb(125, 138, 133);
+  --base-300: rgb(31, 38, 36);
+  --base-400: rgb(11, 15, 14);
+  --base-100-rgb: 232, 239, 233;
 }
 
 nav .nav-container {
@@ -66,7 +75,7 @@ nav .nav-item a {
   padding: 0.5rem 0.75rem;
   text-align: center;
   font-weight: 500;
-  color: var(--base-100);
+  color: var(--base-200);
   transition: color 0.2s ease;
 }
 
