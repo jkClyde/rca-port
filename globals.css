@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Geist+Mono:wght@100..900&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+/*
+  FONTS
+  Display : Anton        (replaces SCHABO, same tall condensed uppercase feel)
+  Mono    : Geist Mono   (unchanged, labels and nav)
+  Body    : Host Grotesk (unchanged, paragraphs)
+
+  PALETTE (default: "Acid Lime on Ink")
+  --base-100  main text / light surfaces
+  --base-200  muted text
+  --base-300  borders / lines
+  --base-400  page background
+  --base-500  accent
+
+  Swap-in alternatives:
+  Ice Blue    : 100 #e6edf5  200 #7f8b99  300 #1d242d  400 #0b0f14  500 #4da3ff
+  Warm Paper  : 100 #1a1a1a  200 #6b675f  300 #d8d3c4  400 #f1ede2  500 #d9381e  (light theme)
+  Violet Neon : 100 #efeaf7  200 #8a829a  300 #241f2e  400 #0e0b14  500 #a77bff
+*/
+
+:root {
+  --base-100: #e8efe9;
+  --base-200: #7d8a85;
+  --base-300: #1f2624;
+  --base-400: #0b0f0e;
+  --base-500: #c6ff3d;
+
+  /* used for glows so they follow the palette */
+  --base-100-rgb: 232, 239, 233;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: var(--base-400);
+  color: var(--base-100);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  font-family: "Anton", "Impact", sans-serif;
+  font-weight: 400; /* Anton only ships one weight */
+  line-height: 0.9;
+}
+
+h1 {
+  font-size: clamp(4rem, 10vw, 10rem);
+  letter-spacing: clamp(-0.03rem, -0.3vw, -0.08rem);
+}
+
+h2 {
+  font-size: clamp(3.25rem, 8vw, 8rem);
+  letter-spacing: clamp(-0.02rem, -0.25vw, -0.06rem);
+}
+
+h3 {
+  font-size: clamp(2.5rem, 6.5vw, 5rem);
+  letter-spacing: 0;
+}
+
+a,
+p {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--base-100);
+  font-family: "Geist Mono", monospace;
+  font-weight: 500;
+  line-height: 1;
+}
+
+a,
+p {
+  font-size: clamp(0.8rem, 0.75vw, 0.85rem);
+}
+
+a.md,
+p.md {
+  font-size: clamp(1rem, 0.8vw, 1.25rem);
+}
+
+a.lg,
+p.lg {
+  font-size: clamp(1.1rem, 0.85vw, 1.35rem);
+}
+
+p.bodyCopy {
+  text-transform: none;
+  font-family: "Host Grotesk", sans-serif;
+  font-weight: 450;
+  line-height: 1.1;
+}
+
+p.bodyCopy {
+  font-size: clamp(1.125rem, 0.75vw, 1.25rem);
+}
+
+p.bodyCopy.md {
+  font-size: clamp(1.25rem, 0.85vw, 1.35rem);
+}
+
+p.bodyCopy.lg {
+  font-size: clamp(1.375rem, 0.95vw, 1.45rem);
+}
+
+.btn {
+  display: inline-block;
+}
+
+a.btn {
+  position: relative;
+  width: max-content;
+  min-width: 200px;
+  height: 65px;
+  padding: 0 2rem;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  color: var(--base-200);
+  background-color: var(--base-400);
+  border: solid 1px var(--base-300);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+a.btn > *:not(.btn-line) {
+  position: relative;
+  z-index: 1;
+}
+
+a.btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 60px;
+  height: 1px;
+  transform: translateY(-1px);
+  background: var(--base-500);
+  transition: all 0.3s ease;
+}
+
+a.btn:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  width: 60px;
+  height: 1px;
+  transform: translateY(1px);
+  background: var(--base-500);
+  transition: all 0.3s ease;
+}
+
+a.btn:hover {
+  color: var(--base-100);
+  border: solid 1px var(--base-300);
+  text-shadow: 0 0 10px rgba(var(--base-100-rgb), 0.2);
+}
+
+a.btn:hover:before {
+  left: 0;
+  width: 20px;
+}
+
+a.btn:hover:after {
+  right: 0;
+  width: 20px;
+}
+
+a.btn:hover .btn-line:before {
+  bottom: -1px;
+}
+
+a.btn:hover .btn-line:after {
+  top: -1px;
+}
+
+.btn-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.btn-line:before {
+  content: "";
+  position: absolute;
+  bottom: 30%;
+  right: -1px;
+  width: 1px;
+  height: 20px;
+  background: var(--base-500);
+  transition: all 0.3s ease;
+}
+
+.btn-line:after {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: -1px;
+  width: 1px;
+  height: 20px;
+  background: var(--base-500);
+  transition: all 0.3s ease;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+.line {
+  position: relative;
+  will-change: transform;
+}

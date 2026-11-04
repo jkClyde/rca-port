@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/observatory", "destination": "/observatory.html" },
+    { "source": "/expedition", "destination": "/expedition.html" },
+    { "source": "/traces", "destination": "/traces.html" },
+    { "source": "/contact", "destination": "/contact.html" }
+  ]
+}

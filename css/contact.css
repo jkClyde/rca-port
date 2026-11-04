@@ -1,0 +1,556 @@
+/* contact - hero (bento: lime title tile + 3 contact tiles) */
+.hero.contact-hero {
+  height: 72svh;
+  min-height: 560px;
+  margin: 0 auto;
+  max-width: 2000px;
+}
+
+.hero.contact-hero .hero-container {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+.hero.contact-hero .hero-container .hero-img-container {
+  grid-row: 1 / 4;
+  background-color: var(--base-500);
+  border-color: var(--base-500);
+}
+
+.hero.contact-hero .hero-container .hero-content .container {
+  justify-content: space-between;
+}
+
+.hero.contact-hero .hero-container .hero-content .container .hero-content-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero.contact-hero .hero-container .hero-content-header h1 {
+  font-size: clamp(4rem, 11vw, 11rem);
+}
+
+/* dark text on the lime tile */
+.hero.contact-hero .hero-container .hero-content-header h1,
+.hero.contact-hero .hero-container .hero-callout p {
+  color: var(--base-400);
+}
+
+.hero.contact-hero .hero-container .hero-callout p {
+  font-weight: 600;
+}
+
+/* scanlines on lime need to be darker to show */
+.hero.contact-hero .hero-container .hero-img-container .hero-img-overlay {
+  background: linear-gradient(
+    rgba(11, 15, 14, 0.12),
+    rgba(11, 15, 14, 0.12) 4px,
+    transparent 4px,
+    transparent 10px
+  );
+  background-size: 100% 9px;
+}
+
+/* contact tiles */
+.hero.contact-hero .ct-1 {
+  grid-column: 9 / 13;
+  grid-row: 1 / 2;
+}
+
+.hero.contact-hero .ct-2 {
+  grid-column: 9 / 13;
+  grid-row: 2 / 3;
+}
+
+.hero.contact-hero .ct-3 {
+  grid-column: 9 / 13;
+  grid-row: 3 / 4;
+}
+
+.hero.contact-hero a.contact-tile {
+  color: var(--base-100);
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.hero.contact-hero a.contact-tile:hover,
+.hero.contact-hero a.contact-tile:focus-visible {
+  background-color: var(--base-500);
+  border-color: var(--base-500);
+  color: #0b0f0e;
+  outline: none;
+}
+
+.hero.contact-hero a.contact-tile:hover p,
+.hero.contact-hero a.contact-tile:focus-visible p {
+  color: #0b0f0e;
+}
+
+.hero.contact-hero a.contact-tile:hover .bento-label::before,
+.hero.contact-hero a.contact-tile:focus-visible .bento-label::before {
+  background: #0b0f0e;
+}
+
+.hero.contact-hero a.contact-tile:hover .contact-card-arrow {
+  transform: translate(0.25rem, -0.25rem);
+}
+
+/* contact - form section */
+.contact-form {
+  position: relative;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  overflow: hidden;
+}
+
+.contact-form .container {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  height: auto;
+  padding: 5rem;
+}
+
+.contact-form .container .contact-form-bg-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: url("#goo");
+  z-index: -1;
+}
+
+.contact-form .container .contact-form-bg-wrapper .contact-form-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--base-300);
+  clip-path: polygon(
+    4rem 0%,
+    calc(100% - 4rem) 0%,
+    100% 4rem,
+    100% calc(100% - 4rem),
+    calc(100% - 4rem) 100%,
+    4rem 100%,
+    0% calc(100% - 4rem),
+    0% 4rem
+  );
+}
+
+.contact-form-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.contact-form-top p {
+  color: var(--base-100);
+}
+
+.contact-form-main {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4rem;
+}
+
+/* left column */
+.contact-form-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.contact-form-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-form-header h3 {
+  color: var(--base-100);
+}
+
+.contact-form-header p {
+  width: 75%;
+  color: var(--base-200);
+}
+
+.contact-form-meta {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-step,
+.contact-form-availability {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.9rem 0;
+  border-top: 1px dashed rgba(var(--base-100-rgb), 0.25);
+}
+
+.contact-step p {
+  color: var(--base-100);
+}
+
+.contact-step .step-index {
+  color: var(--base-500);
+}
+
+.contact-form-availability {
+  justify-content: space-between;
+}
+
+.contact-form-availability p {
+  position: relative;
+  color: var(--base-100);
+}
+
+.contact-form-availability p:first-child {
+  padding-left: 1rem;
+}
+
+.contact-form-availability p:first-child::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--base-500);
+}
+
+.contact-form-availability .contact-clock {
+  color: var(--base-200);
+}
+
+/* right column: the form */
+.contact-form-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-form-right .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.contact-form-right .form-item input,
+.contact-form-right .form-item textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  resize: none;
+  text-transform: uppercase;
+  background-color: rgba(var(--base-100-rgb), 0.08);
+  color: var(--base-100);
+  font-family: "Geist Mono", monospace;
+  font-size: clamp(0.8rem, 0.75vw, 0.85rem);
+  font-weight: 500;
+  line-height: 1;
+  /* the global * { user-select: none } stops typing in some browsers */
+  -webkit-user-select: text;
+  user-select: text;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* typed text keeps its case, only the placeholder is uppercase */
+.contact-form-right .form-item input,
+.contact-form-right .form-item textarea {
+  text-transform: none;
+}
+
+.contact-form-right .form-item input::placeholder,
+.contact-form-right .form-item textarea::placeholder {
+  text-transform: uppercase;
+  font-family: "Geist Mono", monospace;
+  font-weight: 500;
+  color: var(--base-200);
+}
+
+.contact-form-right .form-item input:focus,
+.contact-form-right .form-item textarea:focus {
+  background-color: rgba(var(--base-100-rgb), 0.12);
+  box-shadow: inset 0 0 0 1px var(--base-500);
+}
+
+/* project type chips (radio buttons, no JS needed) */
+.contact-form-right .form-label {
+  margin-bottom: 0.75rem;
+  color: var(--base-200);
+}
+
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chip span {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(var(--base-100-rgb), 0.2);
+  border-radius: 0.25rem;
+  color: var(--base-100);
+  font-family: "Geist Mono", monospace;
+  font-size: clamp(0.8rem, 0.75vw, 0.85rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: background-color 0.25s ease, border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.chip:hover span {
+  border-color: var(--base-500);
+}
+
+.chip input:checked + span {
+  background-color: var(--base-500);
+  border-color: var(--base-500);
+  color: #0b0f0e;
+}
+
+.chip input:focus-visible + span {
+  outline: 2px solid var(--base-500);
+  outline-offset: 2px;
+}
+
+.contact-form-right .form-item .btn {
+  width: 100%;
+}
+
+.contact-form-right .form-item .btn a.btn {
+  width: 100%;
+  background-color: var(--base-400);
+}
+
+.form-status {
+  min-height: 1rem;
+  margin-top: 0.9rem;
+  color: var(--base-200);
+  text-transform: none;
+  line-height: 1.3;
+}
+
+.form-status.is-error {
+  color: #ff7b5c;
+}
+
+/* contact - faq section */
+.faq-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.faq-container .container {
+  display: flex;
+  gap: 1.5rem;
+  height: auto;
+}
+
+.faq-container .container .faq-header {
+  flex: 1;
+  align-self: flex-start;
+  position: sticky;
+  top: 6rem;
+}
+
+.faq-container .container .faq-header h3 {
+  width: 75%;
+  color: var(--base-100);
+}
+
+.faq-container .container .faq-wrapper {
+  flex: 1;
+}
+
+.faq-container .container .faq-wrapper .faq-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq-container .container .faq-wrapper .faq-items .faq-item {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--base-300);
+  border: 1px solid rgba(var(--base-100-rgb), 0.12);
+  border-radius: 0.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: transform, opacity;
+  transition: border-color 0.3s ease;
+}
+
+.faq-container .container .faq-wrapper .faq-items .faq-item:hover {
+  border-color: var(--base-500);
+}
+
+.faq-container .container .faq-wrapper .faq-items .faq-item .faq-question {
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-container .container .faq-wrapper .faq-items .faq-item .faq-question h3 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  letter-spacing: clamp(0rem, -0.5vw, -0.05rem);
+  transition: opacity 0.3s ease;
+  color: var(--base-100);
+}
+
+.faq-container
+  .container
+  .faq-wrapper
+  .faq-items
+  .faq-item
+  .faq-question
+  .faq-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+  color: var(--base-500);
+  will-change: transform;
+}
+
+.faq-container .container .faq-wrapper .faq-items .faq-item .faq-answer {
+  height: 0;
+  opacity: 0;
+  will-change: height, opacity;
+  overflow: hidden;
+}
+
+.faq-container .container .faq-wrapper .faq-items .faq-item .faq-answer p {
+  padding: 0.75rem 0;
+  color: var(--base-100);
+  opacity: 0.8;
+  user-select: none;
+}
+
+/* contact - media queries */
+@media (max-width: 1000px) {
+  .hero.contact-hero {
+    height: auto;
+    min-height: 0;
+  }
+
+  .hero.contact-hero .hero-container {
+    grid-template-rows: none;
+  }
+
+  .hero.contact-hero .hero-container .hero-img-container {
+    grid-column: 1 / 3;
+    grid-row: auto;
+    min-height: 50svh;
+  }
+
+  .hero.contact-hero .ct-1,
+  .hero.contact-hero .ct-2,
+  .hero.contact-hero .ct-3 {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+
+  .hero.contact-hero .hero-container .hero-content .container {
+    padding: 1.25rem;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .hero.contact-hero .hero-container .hero-content-header h1 {
+    font-size: clamp(4rem, 22vw, 8rem);
+  }
+
+  .contact-form .container {
+    padding: 3rem 1rem;
+    gap: 2rem;
+  }
+
+  .contact-form .container .contact-form-bg-wrapper .contact-form-bg {
+    clip-path: none;
+  }
+
+  .contact-form-top {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .contact-form-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+  }
+
+  .contact-form-left {
+    gap: 2rem;
+  }
+
+  .contact-form-header p,
+  .contact-form-meta {
+    width: 100%;
+  }
+
+  .contact-form-right .form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .faq-container {
+    margin: 3rem 0;
+    padding: 0;
+  }
+
+  .faq-container .container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .faq-container .container .faq-header {
+    position: static;
+  }
+
+  .faq-container .container .faq-header h3 {
+    width: 100%;
+  }
+
+  .faq-container .container .faq-wrapper {
+    width: 100%;
+  }
+
+  .faq-container .container .faq-wrapper .faq-items .faq-item .faq-question h3 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    letter-spacing: clamp(0rem, -0.5vw, -0.05rem);
+    line-height: 1;
+  }
+}

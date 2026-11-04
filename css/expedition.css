@@ -1,0 +1,360 @@
+/* expedition (work) - hero: bento, shorter than the homepage */
+.hero.work-hero {
+  height: 72svh;
+  min-height: 560px;
+  margin: 0 auto;
+  max-width: 2000px;
+}
+
+.hero.work-hero .hero-container {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+.hero.work-hero .hero-container .hero-img-container {
+  grid-row: 1 / 4;
+}
+
+.hero.work-hero .hero-container .hero-content .container {
+  justify-content: space-between;
+}
+
+.hero.work-hero .hero-container .hero-content-header h1 {
+  font-size: clamp(4rem, 11vw, 11rem);
+}
+
+/* info tiles */
+.hero.work-hero .wt-1 {
+  grid-column: 9 / 13;
+  grid-row: 1 / 2;
+}
+
+.hero.work-hero .wt-2 {
+  grid-column: 9 / 13;
+  grid-row: 2 / 3;
+}
+
+.hero.work-hero .wt-3 {
+  grid-column: 9 / 13;
+  grid-row: 3 / 4;
+}
+
+.hero.work-hero .work-tile .contact-card-value {
+  max-width: 28rem;
+}
+
+/* the status tile is a link: fills lime on hover */
+.hero.work-hero a.work-tile {
+  color: var(--base-100);
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.hero.work-hero a.work-tile:hover,
+.hero.work-hero a.work-tile:focus-visible {
+  background-color: var(--base-500);
+  border-color: var(--base-500);
+  color: #0b0f0e;
+  outline: none;
+}
+
+.hero.work-hero a.work-tile:hover p,
+.hero.work-hero a.work-tile:focus-visible p {
+  color: #0b0f0e;
+}
+
+.hero.work-hero a.work-tile:hover .bento-label::before,
+.hero.work-hero a.work-tile:focus-visible .bento-label::before {
+  background: #0b0f0e;
+}
+
+.hero.work-hero a.work-tile:hover .contact-card-arrow {
+  transform: translate(0.25rem, -0.25rem);
+}
+
+/* expedition (work) - project index.
+   Row size is set once here. Lower the vw value if a long name ever gets cut off. */
+.expeditions {
+  --row-size: clamp(3rem, 5.5vw, 5.5rem);
+  /* rows are taller than the text, so every row has room to breathe */
+  --row-height: calc(var(--row-size) * 1.3);
+  min-height: 60svh;
+  height: max-content;
+  padding-top: 6rem;
+  padding-bottom: 10rem;
+}
+
+.expeditions p {
+  color: var(--base-200);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+/* the "Project Index" label sits clear of the first row */
+.expeditions > p {
+  margin-bottom: 1.5rem;
+}
+
+.expeditions .expeditions-list .expedition {
+  display: block; /* rows with a link are <a> tags */
+  height: var(--row-height);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  overflow: hidden;
+  background-color: transparent;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+/* hairline dividers: a line above every row and one under the last */
+.expeditions .expeditions-list {
+  max-width: 2000px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(var(--base-100-rgb), 0.15);
+}
+
+.expeditions .expeditions-list .expedition {
+  position: relative;
+}
+
+.expeditions .expeditions-list .expedition::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(var(--base-100-rgb), 0.15);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.expeditions .expeditions-list .expedition h2 {
+  font-size: var(--row-size);
+  white-space: nowrap;
+}
+
+.expeditions .expeditions-list .expedition .expedition-wrapper {
+  position: relative;
+  height: calc(var(--row-height) * 3);
+  will-change: transform;
+  transform: translateY(-66.666%);
+}
+
+.expeditions .expeditions-list .expedition .expedition-wrapper .expedition-name,
+.expeditions
+  .expeditions-list
+  .expedition
+  .expedition-wrapper
+  .expedition-project {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--row-height);
+  padding: 0.5rem 1.5rem;
+}
+
+.expeditions
+  .expeditions-list
+  .expedition
+  .expedition-wrapper
+  .expedition-name {
+  background-color: transparent;
+  color: var(--base-100);
+}
+
+.expeditions
+  .expeditions-list
+  .expedition
+  .expedition-wrapper
+  .expedition-project {
+  position: relative;
+  background-color: var(--base-500);
+  color: var(--base-400);
+}
+
+/* project preview card (desktop, follows the cursor) */
+.work-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: clamp(300px, 30vw, 480px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.work-preview-inner {
+  display: grid;
+  padding: 1rem;
+  background-color: var(--base-300);
+  border: 1px solid rgba(var(--base-100-rgb), 0.15);
+  border-radius: 0.75rem;
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.45);
+  transform-origin: left center;
+}
+
+/* all previews are stacked in one grid cell, so the card never changes size */
+.work-preview .preview-item {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.work-preview .preview-item .project-devices {
+  margin-bottom: 0.25rem;
+}
+
+.work-preview .preview-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.work-preview .preview-caption p {
+  color: var(--base-100);
+}
+
+.work-preview .preview-caption .preview-index {
+  color: var(--base-500);
+}
+
+.work-preview .preview-summary {
+  color: var(--base-200);
+}
+
+/* device mockups: screenshot on top, initials placeholder underneath */
+.laptop-screen {
+  position: relative;
+}
+
+.screen-fallback img {
+  position: relative;
+  z-index: 1;
+}
+
+.screen-fallback::after {
+  content: attr(data-initials);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: "Anton", "Impact", sans-serif;
+  font-size: 2.75rem;
+  letter-spacing: 0.05em;
+  color: rgba(232, 239, 233, 0.3);
+  background: linear-gradient(
+    135deg,
+    #1f2624,
+    color-mix(in srgb, var(--base-500) 22%, #1f2624)
+  );
+}
+
+.phone-screen.screen-fallback::after {
+  font-size: 1.25rem;
+}
+
+/* mobile project cards (hidden on desktop) */
+.expeditions .work-cards {
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0.5rem 1rem 0;
+}
+
+/* mobile cards: dark card, light text, lime accents (matches the bento tiles).
+   Also undoes the ".expeditions p" label styling that would otherwise leak in. */
+.expeditions .work-cards .project {
+  background-color: var(--base-300);
+  border: 1px solid rgba(var(--base-100-rgb), 0.15);
+}
+
+.expeditions .work-cards .project h3 {
+  color: var(--base-100);
+}
+
+.expeditions .work-cards .project p {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  color: var(--base-100);
+}
+
+.expeditions .work-cards .project .project-index {
+  color: var(--base-500);
+}
+
+.expeditions .work-cards .project .project-desc {
+  color: rgba(var(--base-100-rgb), 0.8);
+}
+
+.expeditions .work-cards .project .project-meta p {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid rgba(var(--base-100-rgb), 0.35);
+  color: var(--base-100);
+}
+
+.expeditions .work-cards .project a.btn {
+  color: var(--base-100);
+  border-color: rgba(var(--base-100-rgb), 0.3);
+}
+
+/* expedition (work) - media queries */
+@media (max-width: 1000px) {
+  .hero.work-hero {
+    height: auto;
+    min-height: 0;
+  }
+
+  .hero.work-hero .hero-container {
+    grid-template-rows: none;
+  }
+
+  .hero.work-hero .hero-container .hero-img-container {
+    grid-column: 1 / 3;
+    grid-row: auto;
+    min-height: 55svh;
+  }
+
+  .hero.work-hero .wt-1,
+  .hero.work-hero .wt-2,
+  .hero.work-hero .wt-3 {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+
+  .hero.work-hero .hero-container .hero-content .container {
+    padding: 1.25rem;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .hero.work-hero .hero-container .hero-content-header h1 {
+    font-size: clamp(4rem, 22vw, 8rem);
+  }
+
+  .expeditions {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+  }
+
+  .expeditions p {
+    margin-top: 0;
+    padding: 1rem;
+  }
+
+  .expeditions .expeditions-list {
+    display: none;
+  }
+
+  .expeditions .work-cards {
+    display: flex;
+  }
+
+  .work-preview {
+    display: none;
+  }
+}

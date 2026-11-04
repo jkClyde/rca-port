@@ -1,0 +1,199 @@
+/* nav - desktop: links on the left, social icons on the right */
+nav {
+  position: absolute; /* not sticky for now: change to fixed to make it stick */
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 2000px;
+  height: 3rem;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* above all page content (hero text, tiles); below the preloader */
+  z-index: 100;
+}
+
+nav .nav-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: url("#goo");
+  z-index: -1;
+}
+
+nav .nav-bg {
+  width: 100%;
+  height: 100%;
+  background-color: var(--base-300);
+  clip-path: polygon(
+    1rem 0,
+    calc(100% - 1rem) 0,
+    100% 1rem,
+    100% 100%,
+    0 100%,
+    0 1rem
+  );
+}
+
+/* the mobile header is not used on desktop */
+nav .nav-mobile-header {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.75rem;
+  cursor: pointer;
+  display: none;
+}
+
+/* the overlay wrapper disappears so links and icons sit directly in the bar */
+nav .nav-overlay {
+  display: contents;
+}
+
+nav .nav-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+nav .nav-item a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--base-100);
+  transition: color 0.2s ease;
+}
+
+nav .nav-item a:hover {
+  color: var(--base-500);
+}
+
+/* social icon buttons */
+nav .nav-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+nav .nav-socials a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(var(--base-100-rgb), 0.2);
+  border-radius: 0.25rem;
+  color: var(--base-100);
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+nav .nav-socials a svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+nav .nav-socials a:hover,
+nav .nav-socials a:focus-visible {
+  background-color: var(--base-500);
+  border-color: var(--base-500);
+  color: var(--base-400);
+  outline: none;
+}
+
+/* nav - mobile: the ORIGINAL design (lime pill, logo + Menu, dropdown) */
+@media (max-width: 1000px) {
+  nav {
+    top: 2rem;
+    width: calc(100% - 4rem);
+    max-width: 28rem;
+    height: 2rem;
+    padding: 0;
+    justify-content: center;
+  }
+
+  nav .nav-bg {
+    background-color: var(--base-500);
+    clip-path: none;
+  }
+
+  nav .nav-mobile-header {
+    position: relative;
+    height: 2rem;
+    display: flex;
+    z-index: 2;
+  }
+
+  nav .nav-mobile-header p {
+    font-weight: 600;
+    color: var(--base-400);
+  }
+
+  nav .nav-overlay {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    filter: url("#goo");
+    margin-top: -1rem;
+    z-index: 1;
+  }
+
+  nav .nav-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--base-500);
+    clip-path: polygon(0 0, 100% 0, 100% 0rem, 0 0rem);
+    transition: clip-path 0.3s ease;
+    z-index: -1;
+  }
+
+  nav .nav-items {
+    position: relative;
+    width: 100%;
+    padding: 2rem 0 1rem 0;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  nav .nav-item {
+    width: 100%;
+    pointer-events: none;
+  }
+
+  nav .nav-item a {
+    padding: 0.5rem;
+    font-weight: 600;
+    color: var(--base-400);
+  }
+
+  /* the original mobile menu had no social icons */
+  nav .nav-socials {
+    display: none;
+  }
+
+  nav.nav-open .nav-overlay::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  nav.nav-open .nav-item {
+    pointer-events: all;
+  }
+}

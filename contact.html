@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Randall Clyde</title>
+  <link rel="icon" href="/global/site_logo.png" type="image/png" />
+  <meta name="author" content="Randall Clyde" />
+
+  <link rel="stylesheet" href="/globals.css" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/interactive-grid.css" />
+  <link rel="stylesheet" href="/css/transition.css" />
+  <link rel="stylesheet" href="/css/preloader.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/contact.css" />
+</head>
+
+<body>
+  <div class="preloader-overlay">
+    <div class="preloader-grid"></div>
+
+    <div class="preloader-animation-wrapper">
+      <p class="preloader-text">Stabilizing Feed</p>
+      <div class="preloader-ring-frame"></div>
+      <div class="preloader-disc-frame"></div>
+    </div>
+  </div>
+
+  <svg style="visibility: hidden; position: absolute" width="0" height="0" xmlns="http://www.w3.org/2000/svg"
+    version="1.1">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="interactive-grid"></div>
+
+  <div class="transition-grid"></div>
+
+  <!-- @include nav -->
+
+
+  <!-- HERO: bento. Lime title tile + three direct-contact tiles -->
+  <section class="hero contact-hero">
+    <div class="hero-container">
+      <div class="hero-img-container">
+        <div class="hero-img-overlay"></div>
+
+        <div class="hero-content">
+          <div class="container">
+            <div class="hero-content-nav">
+              <div class="hero-callout">
+                <p data-animate-variant="flicker" data-animate-delay="0.75">
+                  Contact / 2026
+                </p>
+              </div>
+
+              <div class="hero-callout">
+                <p data-animate-variant="flicker" data-animate-delay="0.9">
+                  Baguio, Philippines
+                </p>
+              </div>
+            </div>
+
+            <div class="hero-content-footer">
+              <div class="hero-content-header">
+                <h1 data-animate-variant="slide" data-animate-delay="0.6">
+                  Let's<br />Talk
+                </h1>
+              </div>
+
+              <div class="hero-callout">
+                <p data-animate-variant="flicker" data-animate-delay="1.05">
+                  Open for Projects
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="mailto:aquin.randall@gmail.com" class="bento-tile contact-tile ct-1">
+        <div class="contact-card-top">
+          <p class="bento-label">01 / Email</p>
+          <svg class="contact-card-arrow" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 17 17 7M8 7h9v9" />
+          </svg>
+        </div>
+        <p class="contact-card-value">aquin.randall@gmail.com</p>
+      </a>
+
+      <a href="https://www.linkedin.com/in/randall-clyde/" target="_blank" rel="noopener noreferrer"
+        class="bento-tile contact-tile ct-2">
+        <div class="contact-card-top">
+          <p class="bento-label">02 / LinkedIn</p>
+          <svg class="contact-card-arrow" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 17 17 7M8 7h9v9" />
+          </svg>
+        </div>
+        <p class="contact-card-value">linkedin.com/in/randall-clyde</p>
+      </a>
+
+      <a href="tel:+639185033956" class="bento-tile contact-tile ct-3">
+        <div class="contact-card-top">
+          <p class="bento-label">03 / Phone</p>
+          <svg class="contact-card-arrow" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 17 17 7M8 7h9v9" />
+          </svg>
+        </div>
+        <p class="contact-card-value">+63 918 503 3956</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- FORM: notched goo panel (same effect as the template) -->
+  <section class="contact-form">
+    <div class="container">
+      <div class="contact-form-bg-wrapper">
+        <div class="contact-form-bg"></div>
+      </div>
+
+      <div class="contact-form-top">
+        <p data-animate-variant="flicker" data-animate-delay="0.75">
+          Project Inquiry
+        </p>
+        <p data-animate-variant="flicker" data-animate-delay="0.75">
+          Replies within a day or two
+        </p>
+      </div>
+
+      <div class="contact-form-main">
+        <div class="contact-form-left">
+          <div class="contact-form-header">
+            <h3 data-animate-variant="slide" data-animate-delay="0.75">
+              Tell me about your project
+            </h3>
+
+            <p class="bodyCopy" data-animate-variant="slide" data-animate-delay="0.7">
+              Have a website, web app or online store in mind? Share a few
+              details and I'll get back to you with next steps.
+            </p>
+          </div>
+
+          <div class="contact-form-meta">
+            <div class="contact-steps">
+              <div class="contact-step">
+                <p class="step-index">01</p>
+                <p>Send me the details</p>
+              </div>
+              <div class="contact-step">
+                <p class="step-index">02</p>
+                <p>We talk scope and timeline</p>
+              </div>
+              <div class="contact-step">
+                <p class="step-index">03</p>
+                <p>I design, build and launch</p>
+              </div>
+            </div>
+
+            <div class="contact-form-availability">
+              <p data-animate-variant="flicker" data-animate-on-scroll="true">
+                Open for Projects
+              </p>
+              <p class="contact-clock" data-clock>Baguio / UTC+8</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form-right" data-contact-form novalidate>
+          <div class="form-row">
+            <div class="form-item">
+              <input type="text" name="name" placeholder="Your Name" autocomplete="name" />
+            </div>
+
+            <div class="form-item">
+              <input type="email" name="email" placeholder="Your Email" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-item">
+            <p class="form-label">Project Type</p>
+            <div class="chip-group">
+              <label class="chip"><input type="radio" name="type" value="Website" checked /><span>Website</span></label>
+              <label class="chip"><input type="radio" name="type" value="Web App" /><span>Web App</span></label>
+              <label class="chip"><input type="radio" name="type" value="Online Store" /><span>Online
+                  Store</span></label>
+              <label class="chip"><input type="radio" name="type" value="Something Else" /><span>Something
+                  Else</span></label>
+            </div>
+          </div>
+
+          <div class="form-item">
+            <textarea rows="6" name="message" placeholder="Project Details"></textarea>
+          </div>
+
+          <div class="form-item">
+            <div class="btn">
+              <a href="#" class="btn" data-send>
+                <span class="btn-line"></span>Send Message
+              </a>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-container">
+    <div class="container">
+      <div class="faq-header">
+        <h3 data-animate-variant="slide" data-animate-on-scroll="true">
+          Answers to the questions I get asked most
+        </h3>
+      </div>
+
+      <div class="faq-wrapper">
+        <div class="faq-items">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>What kind of projects do you take on?</h3>
+              <span class="faq-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="faq-answer">
+              <p class="bodyCopy">
+                Business websites, web applications and online stores. I can
+                take a project from the first design all the way to launch and
+                ongoing maintenance.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>How do we get started?</h3>
+              <span class="faq-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="faq-answer">
+              <p class="bodyCopy">
+                Send a message with what you need, your goals and any deadline
+                you have in mind. I'll reply, we'll talk through the scope, and
+                then I'll lay out a clear plan.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>How long does a project take?</h3>
+              <span class="faq-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="faq-answer">
+              <p class="bodyCopy">
+                It depends on the size of the project. Once we've talked
+                through what you need, I'll give you a clear timeline before
+                any work begins.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Do you look after the site after launch?</h3>
+              <span class="faq-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="faq-answer">
+              <p class="bodyCopy">
+                Yes. I handle updates, debugging, security checks and
+                performance and SEO improvements, so your site stays fast,
+                safe and reliable.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>How quickly will you reply?</h3>
+              <span class="faq-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </div>
+
+            <div class="faq-answer">
+              <p class="bodyCopy">
+                Usually within a day or two. I'm based in Baguio, Philippines
+                (UTC+8), so messages sent during my working hours get the
+                fastest response.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- @include footer -->
+
+  <script>
+    (function () {
+      if (sessionStorage.getItem("pageTransition") === "true") {
+        let s = document.createElement("style");
+        s.setAttribute("data-transition", "");
+        s.textContent =
+          ".transition-grid{background-color:var(--base-400);pointer-events:auto;}";
+        (document.head || document.documentElement).appendChild(s);
+      }
+    })();
+  </script>
+
+  <script type="module" src="/js/lenis-scroll.js"></script>
+  <script type="module" src="/js/preloader.js"></script>
+  <script type="module" src="/js/nav.js"></script>
+  <script type="module" src="/js/interactive-grid.js"></script>
+  <script type="module" src="/js/transition.js"></script>
+  <script type="module" src="/js/home.js"></script>
+  <script type="module" src="/js/faq.js"></script>
+  <script type="module" src="/js/contact-form.js"></script>
+  <script type="module" src="/js/animated-copy.js"></script>
+</body>
+
+</html>
