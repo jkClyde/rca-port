@@ -18,65 +18,70 @@ document.addEventListener("DOMContentLoaded", () => {
 //   desktop / mobile : screenshots (public/projects/...). If a file is missing, a
 //                      clean placeholder with the project's initials is shown instead.
 //
-// TODO: the three "Project Name" entries are placeholders. Replace them with real
-// projects (or delete them). Keep 4 to 5 entries so the hover effect reads well.
+// TODO: Wagster and CalaTrace still need a real "type" and "summary", and Wagster
+// needs a live url. Their text matches the placeholders in the homepage cards.
 const EXPEDITIONS_DATA = [
   {
     name: "BDN Shop",
     type: "E-commerce",
     project: "Next.js / WooCommerce",
-    tags: ["Next.js", "TypeScript", "WooCommerce"],
+    tags: ["Next.js", "TypeScript", "WooCommerce", "WordPress", "GSAP"],
     label: "Visit Site",
     url: "https://bdn-shop.com",
     year: "2026",
     summary:
-      "A headless online store with product listings, cart, checkout and order management.",
-    desktop: "/projects/project-1-desktop.jpg",
-    mobile: "/projects/project-1-mobile.jpg",
+      "A headless online store with product management, cart, checkout and integrated payments.",
+    desktop: "/img/featured/bdn-desktop.png",
+    mobile: "/img/featured/bdn-mobile.png",
   },
   {
-    name: "Nutrition Surveillance",
-    type: "Web App",
-    project: "Django / React",
-    label: "Case Study",
-    year: "2025",
-    summary:
-      "A nutrition data system for La Trinidad. I built the frontend and authentication.",
-    desktop: "/projects/project-2-desktop.jpg",
-    mobile: "/projects/project-2-mobile.jpg",
-  },
-  {
-    name: "Project Name",
+    name: "Ayoha Cafe",
     type: "Website",
-    project: "Next.js / GSAP / SEO",
-    label: "Visit Site",
-    url: "https://example.com",
-    year: "2026",
-    summary: "One short line about what you built and for whom.",
-    desktop: "/projects/project-3-desktop.jpg",
-    mobile: "/projects/project-3-mobile.jpg",
-  },
-  {
-    name: "Project Name",
-    type: "Mobile App",
-    project: "React Native / Expo",
+    project: "Next.js / GSAP",
+    tags: ["Next.js", "Tailwind CSS", "GSAP"],
     label: "View Project",
-    url: "https://example.com",
+    url: "https://ayohacafe.com",
     year: "2026",
-    summary: "One short line about what you built and for whom.",
-    desktop: "/projects/project-4-desktop.jpg",
-    mobile: "/projects/project-4-mobile.jpg",
+    summary:
+      "A modern café website with smooth scroll animations and responsive layouts.",
+    desktop: "/img/featured/ayoha-desktop.png",
+    mobile: "/img/featured/ayoha-mobile.png",
   },
   {
-    name: "Project Name",
-    type: "Online Store",
-    project: "WordPress / Elementor",
-    label: "Visit Site",
-    url: "https://example.com",
+    name: "Wagster",
+    type: "Project",
+    project: "WordPress / WooCommerce",
+    tags: ["WordPress", "WooCommerce"],
+    label: "View Project",
     year: "2026",
-    summary: "One short line about what you built and for whom.",
-    desktop: "/projects/project-5-desktop.jpg",
-    mobile: "/projects/project-5-mobile.jpg",
+    summary: " Designed and developed an online store for an apparel brand, featuring product catalogs, a smooth shopping cart and checkout, and a responsive layout that showcases the collection on any device.",
+    desktop: "/img/featured/wagster-desktop.png",
+    mobile: "/img/featured/wagster-mobile.png",
+  },
+  {
+    name: "Project Management System",
+    type: "Web App",
+    project: "Next.js / Supabase",
+    tags: ["Next.js", "TypeScript", "Prisma", "Supabase"],
+    label: "Visit Site",
+    url: "https://cly-pms.vercel.app/",
+    year: "2026",
+    summary:
+      "A dashboard for organizing projects, managing tasks and tracking progress, with user authentication.",
+    desktop: "/img/featured/pms-desktop.png",
+    mobile: "/img/featured/pms-mobile.png",
+  },
+  {
+    name: "CalaTrace",
+    type: "Project",
+    project: "Next.js / TypeScript",
+    tags: ["Next.js", "TypeScript"],
+    label: "View Project",
+    // TODO: add the live url when it is ready
+    year: "2026",
+    summary: "TODO: write a one line description of CalaTrace.",
+    desktop: "/img/featured/calatrace-desktop.png",
+    mobile: "/img/featured/calatrace-mobile.png",
   },
 ];
 

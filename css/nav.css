@@ -38,14 +38,14 @@ nav .nav-bg {
   width: 100%;
   height: 100%;
   background-color: var(--base-300);
-  clip-path: polygon(
+  /* clip-path: polygon(
     1rem 0,
     calc(100% - 1rem) 0,
     100% 1rem,
     100% 100%,
     0 100%,
     0 1rem
-  );
+  ); */
 }
 
 /* the mobile header is not used on desktop */
@@ -75,7 +75,7 @@ nav .nav-item a {
   padding: 0.5rem 0.75rem;
   text-align: center;
   font-weight: 500;
-  color: var(--base-200);
+  color: var(--base-100);
   transition: color 0.2s ease;
 }
 

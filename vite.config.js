@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-import { readFileSync } from "fs";
+import { readFileSync, existsSync, mkdirSync, renameSync } from "fs";
 
 // Shared HTML pieces (nav, footer). In any page, write
 //   <!-- @include nav -->
@@ -28,8 +28,31 @@ function htmlPartials() {
   };
 }
 
+// After the build, turns dist/projects.html into dist/projects/index.html,
+// so the URL /projects works on any host (Hostinger included) with no
+// server rewrite rules. Add a page name here whenever you add a new page.
+function cleanUrls(pages) {
+  let outDir = resolve(__dirname, "dist");
+
+  return {
+    name: "clean-urls",
+    apply: "build",
+    configResolved(config) {
+      outDir = resolve(config.root, config.build.outDir);
+    },
+    closeBundle() {
+      for (const page of pages) {
+        const from = resolve(outDir, `${page}.html`);
+        if (!existsSync(from)) continue;
+        mkdirSync(resolve(outDir, page), { recursive: true });
+        renameSync(from, resolve(outDir, page, "index.html"));
+      }
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [htmlPartials()],
+  plugins: [htmlPartials(), cleanUrls(["projects", "contact"])],
   build: {
     rollupOptions: {
       input: {
