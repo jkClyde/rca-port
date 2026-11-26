@@ -304,10 +304,17 @@
   will-change: color;
 }
 
-/* index - featured projects header section */
+/* index - featured projects header section.
+   The header is pinned by home.js while the project cards scroll over it.
+   It stays at z-index 0 (not -1) and .featured-missions sits above it at z-index 1,
+   so the cards always paint over the heading and nothing else can cover it by accident. */
 .featured-missions-header {
-  position: relative;
-  width: 100vw;
+  /* sticks to the top while the project cards scroll over it.
+     Works because home.js wraps the header and the cards in .featured-missions-wrap.
+     Do not put overflow: hidden / auto on that wrapper or any parent, it would break sticky. */
+  position: sticky;
+  top: 0;
+  width: 100%; /* was 100vw, which can add sideways overflow on mobile */
   height: 100svh;
   padding: 1.5rem;
   display: flex;
@@ -315,7 +322,7 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
-  z-index: -1;
+  z-index: 0;
 }
 
 /* the heading in the HTML is an h2, so this targets h2 (it used to target h1) */
@@ -327,6 +334,8 @@
 
 /* index - featured projects */
 .featured-missions {
+  position: relative;
+  z-index: 1; /* project cards paint above the pinned header */
   width: 100%;
   padding: 7.5rem 1.5rem 15rem 1.5rem;
 }
@@ -545,7 +554,9 @@
 .zoom-gallery {
   position: relative;
   width: 100%;
-  height: 100dvh;
+  /* svh, not dvh: dvh changes when the phone's address bar moves, but
+     ScrollTrigger ignores mobile resizes (zoom.js), so the pin spacing went stale */
+  height: 100svh;
   overflow: hidden;
 }
 
@@ -1561,4 +1572,45 @@ footer .footer-links-group a:hover::before {
   --base-300: rgb(31, 38, 36);
   --base-400: rgb(11, 15, 14);
   --base-100-rgb: 232, 239, 233;
+}
+/* fallbacks for older phone browsers (iOS Safari < 16.2, older Android WebView) */
+
+/* no color-mix(): use a plain translucent color instead */
+@supports not (background-color: color-mix(in srgb, red 50%, blue)) {
+  .hero .bento-tile,
+  .contact-card {
+    background-color: rgba(31, 38, 36, 0.85);
+  }
+}
+
+/* no svh units: fall back to vh */
+@supports not (height: 100svh) {
+  .hero {
+    height: 100vh;
+  }
+
+  .zoom-gallery,
+  .routine,
+  .featured-missions-header {
+    height: 100vh;
+  }
+
+  .contact {
+    min-height: 100vh;
+  }
+
+  @media (max-width: 1000px) {
+    .hero {
+      height: auto;
+      min-height: 100vh;
+    }
+
+    .routine {
+      height: auto;
+    }
+
+    .hero .hero-container .hero-img-container {
+      min-height: 65vh;
+    }
+  }
 }
